@@ -1,11 +1,12 @@
 package edu.touro.las.mcon364.func_prog.exercises;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+
 
 /**
  * Functional Interface Practice
@@ -39,8 +40,7 @@ public class FunctionalInterfaceExercises {
      *
      */
     public static Supplier<Integer> currentYearSupplier() {
-      // TODO
-        return null;
+        return () -> LocalDate.now().getYear();
     }
 
     /**
@@ -48,11 +48,9 @@ public class FunctionalInterfaceExercises {
      * between 1 and 100.
      */
     public static Supplier<Integer> randomScoreSupplier() {
-        // TODO
-        return null;
-    }
+        return () -> ThreadLocalRandom.current().nextInt(1, 100);
 
-    // =========================================================
+        // =========================================================
     // PART 2 — PREDICATES
     // =========================================================
 
@@ -60,9 +58,10 @@ public class FunctionalInterfaceExercises {
      * 3) Create a Predicate that checks whether
      * a string is all uppercase.
      */
+    // TODO
     public static Predicate<String> isAllUpperCase() {
-        // TODO
-        return null;
+        Predicate<String> upperCaseCheck = s -> s.isAllUpperCase();
+        System.out.println(upperCaseCheck.test(s));
     }
 
     /**
@@ -72,8 +71,13 @@ public class FunctionalInterfaceExercises {
      * Hint: consider chaining.
      */
     public static Predicate<Integer> positiveAndDivisibleByFive() {
-        // TODO
-        return null;
+            Predicate<Integer> positive = s -> s > 0;
+            Predicate<Integer> divisibleByFive = s -> s % 5 = 0;
+
+            Predicate<String> rule = positive.and(divisibleByFive);
+
+            System.out.println(rule.test(15)); // true
+            System.out.println(rule.test(16));    // false
     }
 
     // =========================================================
@@ -98,7 +102,7 @@ public class FunctionalInterfaceExercises {
      * Bonus: Make it case-insensitive.
      */
     public static Function<String, Integer> countVowels() {
-        // TODO
+        Function<String, Integer> vowels = s ->s.
         return null;
     }
 
