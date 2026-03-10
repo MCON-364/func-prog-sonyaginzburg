@@ -78,6 +78,8 @@ public class FunctionalInterfaceExercises {
             System.out.println(rule.test(15)); // true
             System.out.println(rule.test(16));    // false
         return rule;
+        // or return ((Predicate<Integer>) n -> n > 0)
+        //                    .and(n -> n % 5 == 0);
     }
 
     // =========================================================
@@ -148,9 +150,9 @@ public class FunctionalInterfaceExercises {
      *  - A Consumer
      *
      * Process the list as follows:
-     *  - Keep only strings longer than 3 characters
-     *  - Convert them to lowercase
-     *  - Print them
+     *  - Keep only strings longer than 3 characters - "filtering, Is it more or less than 3 characters"
+     *  - Convert them to lowercase - "function - transforms input to output"
+     *  - Print them - "does something, returns nothing (printing)"
      */
     public static void processStrings(List<String> values) {
         Predicate<String> longerThanThree = s -> s.length() > 3 ;
@@ -166,9 +168,9 @@ public class FunctionalInterfaceExercises {
 
     /**
      * 10) Apply:
-     *  - A Supplier
-     *  - A Predicate
-     *  - A Consumer
+     *  - A Supplier - "generates random"
+     *  - A Predicate - "asks is it above 70'
+     *  - A Consumer - "prints"
      *
      * Generate 5 random scores.
      * Print only those above 70.
